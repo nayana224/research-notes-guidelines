@@ -104,7 +104,56 @@ Fig. 6 / Sec. IV-C
 
 Use the note as an index and mental-model reconstruction layer; use the paper as the authoritative detail layer.
 
-### 5. Prefer hierarchy over prose
+### 5. Preserve evidence traceability
+
+Important summaries, method descriptions, quantitative results, claims, and conclusions should be traceable back to the parts of the paper used to construct them.
+
+When practical, record both the pointer and its role:
+
+```text
+Evidence / Source:
+- Fig. 3 — overall system flow
+- Sec. III-B — method definition
+- Eq. (4) — training objective
+- Table II — quantitative evidence
+- Sec. IV-C — authors' interpretation of the result
+```
+
+Use `Evidence / Source` when the note is making a source-backed statement.
+Use `Based on` when recording an interpretation derived from one or more source items.
+
+Examples:
+
+```text
+Paper states:
+The proposed method improves success rate over the reported baselines.
+
+Evidence / Source:
+- Table II — quantitative comparison
+- Sec. IV-C — authors' discussion
+```
+
+```text
+My interpretation:
+The improvement appears to come mainly from the representation rather than the downstream controller.
+
+Based on:
+- Fig. 3 — architecture
+- Table III — ablation results
+```
+
+Do not add evidence pointers mechanically to every sentence.
+Prioritize traceability when the content is:
+
+- central to the paper's contribution,
+- quantitative,
+- uncertain or easy to misremember,
+- likely to be reused in another project,
+- likely to be checked against the original paper later.
+
+If a statement is supported by multiple source types, keep the set small and useful rather than listing every nearby reference.
+
+### 6. Prefer hierarchy over prose
 
 Use:
 
@@ -116,7 +165,7 @@ Use:
 
 Avoid long paragraphs when the same information can be reconstructed faster from structure.
 
-### 6. Keep metadata minimal
+### 7. Keep metadata minimal
 
 Database properties are for retrieval and filtering, not for storing the paper's full content.
 
@@ -146,6 +195,7 @@ Start with one sentence:
 > 이 논문은 **[problem]**을 해결하기 위해 **[core idea]**를 제안하고, **[key evidence/result]**로 이를 검증한다.
 
 This sentence should help identify the paper without reopening the abstract.
+When the key evidence is important or quantitative, add a concise `Evidence / Source` pointer.
 
 ---
 
@@ -185,6 +235,8 @@ What result matters most?
 ### Why I Care
 Why is this paper relevant to the user's research or current question?
 
+For important source-backed items, include a compact `Evidence / Source` block rather than repeating detailed source content.
+
 The entire `At a Glance` section should be readable without opening detailed toggles.
 
 ---
@@ -202,6 +254,8 @@ Include when useful:
 - Key assumptions
 
 A reader should understand how the argument of the paper is organized.
+
+When a contribution or assumption is important to reuse or verify later, record where it came from.
 
 ---
 
@@ -229,8 +283,10 @@ Output:
 Connection:
 - Where does the output go next?
 
-Source:
-- Section / Figure / Equation pointer when useful
+Evidence / Source:
+- Sec. III-B — method definition
+- Fig. 3 — data flow
+- Eq. (4) — objective or computation, when relevant
 ```
 
 For robotics and vision work, include when relevant:
@@ -295,7 +351,10 @@ Metric:
 Result:
 Claim supported:
 Why it matters:
-Source:
+Evidence / Source:
+- Table II — quantitative result
+- Fig. 6 — qualitative or trend visualization
+- Sec. IV-C — authors' interpretation
 ```
 
 When interpretation matters, make the evidence chain explicit:
@@ -326,6 +385,7 @@ Prefer:
 - where the proposed method fits.
 
 Distinguish the authors' framing of prior work from independently verified facts.
+For important positioning statements, add the section or citation context used to construct the note when helpful.
 
 ---
 
@@ -338,8 +398,24 @@ Recommended structure:
 ### Paper states
 Source-backed statements that are important to remember.
 
+For important statements, add:
+
+```text
+Evidence / Source:
+- Section / Figure / Table / Equation pointer
+```
+
 ### My interpretation
 How the mechanism is currently understood.
+
+When the interpretation depends on specific source items, add:
+
+```text
+Based on:
+- Fig. ...
+- Eq. ...
+- Table ...
+```
 
 ### Questions
 Anything unclear, missing, or worth checking later.
@@ -356,6 +432,9 @@ Separate when possible:
 - limitations inferred from the method or experiments,
 - implementation risks,
 - unresolved technical questions.
+
+For author-acknowledged limitations, preserve the source pointer when practical.
+For inferred limitations, make clear which evidence or design detail the inference is based on.
 
 Do not turn this into generic criticism.
 
@@ -381,6 +460,8 @@ Possible extensions, experiments, or alternative formulations suggested by the p
 
 ### Next questions
 Concrete questions that should drive the next paper search, experiment, or design decision.
+
+When a research connection depends strongly on one specific paper result or design choice, preserve the relevant source pointer so the original evidence can be revisited later.
 
 ---
 
@@ -469,6 +550,8 @@ A useful callout convention is:
 
 Do not overuse icons, colors, callouts, or nested toggles merely for decoration.
 
+Keep `Evidence / Source` blocks compact so traceability improves trust without reducing readability.
+
 ---
 
 # Default response strategy
@@ -481,8 +564,9 @@ When the user asks to create a Paper Library note from an already studied paper:
 4. reconstruct the Paper Map and only the important Method blocks,
 5. retain only key Figures / Equations and add source pointers,
 6. map important experiments to claims and evidence,
-7. separate paper content from interpretation,
-8. finish with Research Connection,
-9. move detailed study traces to the bottom.
+7. add `Evidence / Source` for important source-backed statements and `Based on` for interpretations when useful,
+8. separate paper content from interpretation,
+9. finish with Research Connection,
+10. move detailed study traces to the bottom.
 
 If the paper has not been sufficiently understood, do not pretend the canonical note is complete. Mark missing parts and return to paper-understanding work first.
