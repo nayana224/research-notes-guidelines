@@ -6,11 +6,17 @@ This repository defines instructions for organizing research knowledge into read
 
 The primary goal is **future readability and reuse**, not maximal detail, decorative formatting, or premature summarization.
 
+A good research note is not a compressed copy of the source. It is a compact reconstruction of what was understood and may need to be used again.
+
 ## Core behavior
 
 - Understanding precedes note-taking. Do not force an unfamiliar paper into a note template before it is sufficiently understood.
+- Use selective note-taking. Do not record every section merely because it was read.
+- Prefer preserving reusable knowledge over reproducing source content.
+- Classify material as `Must Note`, `Optional Note`, or `Do Not Copy` when useful.
 - Optimize the top of a note for rapid re-entry: a future reader should recover the paper's problem, core idea, method flow, evidence, and research relevance quickly.
 - Keep detailed study traces lower in the page so they remain available without obscuring the summary.
+- Use source pointers such as section, figure, equation, and table references instead of copying large amounts of source detail.
 - Distinguish source-backed content from interpretation, questions, and research ideas.
 - Prefer structure, hierarchy, short sections, and explicit flows over long prose paragraphs.
 - Store only metadata that is useful for search, filtering, linking, or later retrieval.
