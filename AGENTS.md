@@ -17,6 +17,9 @@ A good research note is not a compressed copy of the source. It is a compact rec
 - Optimize the top of a note for rapid re-entry: a future reader should recover the paper's problem, core idea, method flow, evidence, and research relevance quickly.
 - Keep detailed study traces lower in the page so they remain available without obscuring the summary.
 - Use source pointers such as section, figure, equation, and table references instead of copying large amounts of source detail.
+- Preserve evidence traceability for important summaries, method descriptions, quantitative results, claims, and conclusions. Record which `Section`, `Figure`, `Table`, `Equation`, or appendix was used to construct the note when practical.
+- When useful, state the role of each source pointer, such as `Fig. 3 — overall pipeline`, `Eq. (4) — training objective`, or `Table II — quantitative evidence`.
+- Do not attach source pointers mechanically to every sentence. Prioritize material that is important, quantitative, uncertain, or likely to be reused or checked later.
 - Distinguish source-backed content from interpretation, questions, and research ideas.
 - Prefer structure, hierarchy, short sections, and explicit flows over long prose paragraphs.
 - Store only metadata that is useful for search, filtering, linking, or later retrieval.
