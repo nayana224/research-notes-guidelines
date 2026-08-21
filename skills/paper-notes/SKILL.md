@@ -17,6 +17,8 @@ The page should have two layers:
 Do not optimize for maximum completeness.
 Optimize for retrieval, understanding, and reuse.
 
+A good research note is not a compressed copy of the paper. It is a compact reconstruction of what was understood and may need to be used again.
+
 ---
 
 ## Fundamental rules
@@ -31,7 +33,33 @@ If the source understanding is incomplete:
 - keep it under Questions / Open Questions,
 - do not fill the gap with plausible-sounding detail.
 
-### 2. Separate evidence from interpretation
+### 2. Use selective note-taking
+
+Do not record every section merely because it was read.
+
+Decide whether information deserves to be preserved:
+
+- **Must Note** — needed to recover the paper's main problem, mechanism, evidence, or research relevance later.
+- **Optional Note** — useful context, implementation detail, comparison, or observation that may matter later.
+- **Do Not Copy** — source prose, repetitive explanation, minor numbers, or details that are easy to retrieve from the paper and add little reusable value.
+
+A useful default mapping from selective reading is:
+
+```text
+Must Read
+→ usually Must Note
+
+Skim
+→ note only if it adds context or research value
+
+Skip for now
+→ normally do not note
+```
+
+Do not turn `Must Read` into a requirement to copy everything from that section.
+The note should preserve the smallest amount of information that can reliably reconstruct the important understanding.
+
+### 3. Separate evidence from interpretation
 
 Keep these categories distinct when relevant:
 
@@ -42,7 +70,41 @@ Keep these categories distinct when relevant:
 
 Do not present interpretation or research ideas as paper claims.
 
-### 3. Prefer hierarchy over prose
+### 4. Prefer source pointers over duplication
+
+Use concise source pointers whenever the original paper is the better place for full detail.
+
+Examples:
+
+- `Sec. III-B`
+- `Fig. 4`
+- `Eq. (6)`
+- `Table II`
+- `Appendix A`
+
+A note should explain why a source item matters, not reproduce it unnecessarily.
+
+Useful pattern:
+
+```text
+Experiment — insertion-depth ablation
+
+Question:
+Does insertion depth affect performance?
+
+Result:
+Mid-depth setting was the most stable.
+
+Why it matters:
+Directly relevant to our insertion-depth sampling design.
+
+Source:
+Fig. 6 / Sec. IV-C
+```
+
+Use the note as an index and mental-model reconstruction layer; use the paper as the authoritative detail layer.
+
+### 5. Prefer hierarchy over prose
 
 Use:
 
@@ -54,7 +116,7 @@ Use:
 
 Avoid long paragraphs when the same information can be reconstructed faster from structure.
 
-### 4. Keep metadata minimal
+### 6. Keep metadata minimal
 
 Database properties are for retrieval and filtering, not for storing the paper's full content.
 
@@ -166,6 +228,9 @@ Output:
 
 Connection:
 - Where does the output go next?
+
+Source:
+- Section / Figure / Equation pointer when useful
 ```
 
 For robotics and vision work, include when relevant:
@@ -192,6 +257,7 @@ For each important figure:
 - Flow or relationship
 - Important labels / axes / frames
 - Why it matters
+- Source pointer
 
 Do not store every figure.
 
@@ -205,6 +271,7 @@ For each important equation:
 - Dimensions when known
 - Pipeline role
 - Common misunderstanding, if relevant
+- Source pointer
 
 Dimension status should be distinguishable as:
 
@@ -227,6 +294,8 @@ Compared / Baselines:
 Metric:
 Result:
 Claim supported:
+Why it matters:
+Source:
 ```
 
 When interpretation matters, make the evidence chain explicit:
@@ -240,6 +309,7 @@ Author claim
 ```
 
 Do not store only headline scores.
+Do not copy full result tables when a short interpretation plus `Table` or `Figure` pointer is sufficient.
 
 ---
 
@@ -332,6 +402,7 @@ Detailed Study Notes
 
 Do not require a detailed note for every section.
 Preserve only material that adds value beyond the canonical synthesis.
+A section being read does not automatically justify a detailed note.
 
 ---
 
@@ -346,6 +417,10 @@ Examples:
 - Point Cloud
 - Receptive Field
 - Impedance Control
+
+A strong signal to create or reuse a Concept Note is:
+
+> the concept is likely to appear again in other papers or projects.
 
 A Concept Note may contain:
 
@@ -400,13 +475,14 @@ Do not overuse icons, colors, callouts, or nested toggles merely for decoration.
 
 When the user asks to create a Paper Library note from an already studied paper:
 
-1. create the One-line Takeaway,
-2. write `At a Glance` first,
-3. reconstruct the Paper Map and Method,
-4. retain only key Figures / Equations,
-5. map experiments to claims and evidence,
-6. separate paper content from interpretation,
-7. finish with Research Connection,
-8. move detailed study traces to the bottom.
+1. identify what is `Must Note`, `Optional Note`, and `Do Not Copy`,
+2. create the One-line Takeaway,
+3. write `At a Glance` first,
+4. reconstruct the Paper Map and only the important Method blocks,
+5. retain only key Figures / Equations and add source pointers,
+6. map important experiments to claims and evidence,
+7. separate paper content from interpretation,
+8. finish with Research Connection,
+9. move detailed study traces to the bottom.
 
 If the paper has not been sufficiently understood, do not pretend the canonical note is complete. Mark missing parts and return to paper-understanding work first.
